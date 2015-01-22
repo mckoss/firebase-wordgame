@@ -1,6 +1,10 @@
 Todo list
 
-- Repo w Polymer/Bower/Closure Compiler/Closure Library
+X Repo w Polymer/Bower/Closure Compiler/Closure Library
+- qunit tests for non-UI components
+- goog.module?
+- browserify?
+- jshint
 - Domain hosting on Firebase
 - Create new Game
 - Generates “Join Code” - anyone can join.
