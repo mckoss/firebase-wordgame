@@ -1,11 +1,13 @@
 Todo list
 
 X Repo w Polymer/Bower/Closure Compiler/Closure Library
-- qunit tests for non-UI components
+X qunit tests for non-UI components
+X jshint
+- Add to Homescreen page (manifest)
 - goog.module?
 - browserify?
-- jshint
-- Domain hosting on Firebase
+- Host on firebase
+- Custom domain
 - Create new Game
 - Generates “Join Code” - anyone can join.
 - Turns are based on join order in game.
