@@ -3,11 +3,11 @@ Todo list
 X Repo w Polymer/Bower/Closure Compiler/Closure Library
 X qunit tests for non-UI components
 X jshint
-- Add to Homescreen page (manifest)
+X Add to Homescreen page (manifest)
 - goog.module?
 - browserify?
-- Host on firebase
-- Custom domain
+X Host on firebase - koss-wordgame.firebaseapp.com
+\ Custom domain
 - Create new Game
 - Generates “Join Code” - anyone can join.
 - Turns are based on join order in game.

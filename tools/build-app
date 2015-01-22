@@ -6,5 +6,6 @@ cd $PROJ_DIR
 mkdir -p build
 
 vulcanize --inline -o build/index.html index.html
+cp manifest.json build
 cp -R images build/images
 cp -R styles build/styles
