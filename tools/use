@@ -1,0 +1,9 @@
+export PROJECT=firebase-wordgame
+export TOOLS_DIR="$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)"
+source $TOOLS_DIR/usefuncs
+
+PATH="$(npm bin):$PATH"
+
+add_alias cd-docs "cd \$PROJ_DIR/docs"
+
+show-commands

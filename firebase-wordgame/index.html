@@ -1,0 +1,44 @@
+<link rel="import"
+      href="../bower_components/polymer/polymer.html">
+<link rel="import"
+      href="../bower_components/core-header-panel/core-header-panel.html">
+<link rel="import"
+      href="../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import"
+      href="../bower_components/core-icons/core-icons.html">
+<link rel="import"
+      href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import"
+      href="../bower_components/core-list/core-list.html">
+
+<polymer-element name="firebase-wordgame">
+  <script src="firebase-wordgame.js"></script>
+  <template>
+    <style>
+      :host {
+        font-family: Roboto;
+      }
+
+      core-toolbar {
+      }
+
+      .content {
+        margin: 5px;
+      }
+    </style>
+    <core-header-panel fit>
+      <core-toolbar>
+        <paper-icon-button id="menu-button"
+                           icon="menu"></paper-icon-button>
+        <span flex>Firebase Wordgame</span>
+      </core-toolbar>
+      <div class="content" fit>
+        <core-list data="{{messages}}" fit>
+          <template>
+            <div><label>Type: </label>{{model.messageType}}</div>
+          </template>
+        </core-list>
+      </div>
+    </core-header-panel>
+  </template>
+</polymer-element>

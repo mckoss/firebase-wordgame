@@ -1,0 +1,98 @@
+# Helper script for setting up a project-specific environment
+# and commands.
+#
+# Sourced from a 'use' script containing:
+# export PROJECT=<project-name>
+# export TOOLS_DIR="$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)"
+# source $TOOLS_DIR/usefuncs
+# add_alias <alias-name> "<command>"
+# show-commands
+#
+# Executables in this directory should have a header commment formated like:
+#
+# <command-name> --- <Description of the command>
+
+ENV_ALIASES=""
+
+reuse () {
+    source "$TOOLS_DIR/use"
+}
+
+add_alias () {
+    a="$1"; shift
+    d="$1"; shift
+    ENV_ALIASES="$ENV_ALIASES $a"
+    alias $a="$d"
+}
+
+unuse () {
+    if [ -n "$_OLD_PATH" ] ; then
+        export PATH="$_OLD_PATH"
+        unset _OLD_PATH
+    fi
+
+    if [ -n "$_OLD_GOPATH" ] ; then
+        export GOPATH="$_OLD_GOPATH"
+        unset _OLD_GOPATH
+    fi
+
+    if [ -n "$_OLD_PS1" ] ; then
+        export PS1="$_OLD_PS1"
+        unset _OLD_PS1
+    fi
+
+    unset -f unuse
+    if [[ "$ENV_ALIASES" != "" ]]; then
+        unalias $ENV_ALIASES
+    fi
+    unset ENV_ALIASES
+}
+
+display-command () {
+    command=$1; shift
+    description=$1; shift
+    if [[ "$description" == "" ]]; then
+        return
+    fi
+    echo "$(printf "%-20s" "$command") $description"
+}
+
+show-commands () {
+    echo "Commands available in the $PROJECT project:"
+    echo
+
+    for a in $ENV_ALIASES; do
+        HELP=$(alias $a | sed -e 's/^.*=.//' | sed -e 's/.$//')
+        display-command "$a" "$HELP"
+    done
+
+    echo
+
+    display-command reuse "Re-read the current project environment files."
+    display-command unuse "Deactivate this project environment."
+    display-command show-commands "Show this helpful message."
+
+    echo
+
+    for prog in $(find $TOOLS_DIR -maxdepth 1 -perm +111 -type f | sort); do
+        HELP=$(grep '^#.*\-\-\-' $prog | sed 's/^.*\-\-\- //')
+
+        display-command "$(basename $prog)" "$HELP"
+    done
+}
+
+if [ -z "$_OLD_PATH" ]; then
+    _OLD_PATH="$PATH"
+fi
+
+if [ -z "$_OLD_PS1" ]; then
+    _OLD_PS1="$PS1"
+fi
+
+export PS1="($PROJECT)$_OLD_PS1"
+export PROJ_DIR="$(dirname $TOOLS_DIR)"
+
+add_alias cd-tools "cd \$TOOLS_DIR"
+add_alias cd-home "cd \$PROJ_DIR"
+
+PATH="$TOOLS_DIR:$_OLD_PATH"

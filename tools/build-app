@@ -1,0 +1,10 @@
+#!/bin/bash
+# build-app --- Build app in directory using vulcanize.
+set -e
+
+cd $PROJ_DIR
+mkdir -p build
+
+vulcanize --inline -o build/index.html index.html
+cp -R images build/images
+cp -R styles build/styles

@@ -1,0 +1,8 @@
+#!/bin/bash
+# clean-project --- Remove all temporary files from dependencies and builds.
+set -e
+
+cd $PROJ_DIR
+rm -rf bower_components
+rm -rf node_modules
+rm -rf build

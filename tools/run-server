@@ -1,0 +1,15 @@
+#!/bin/bash
+# run-server --- Run app in a web server (port 8080 default).
+set -e
+
+if [[ "$1" == "" ]]; then
+    PORT=8080
+else
+    PORT=$1
+fi
+
+echo "Serving $(pwd) on port $PORT."
+
+cd $PROJ_DIR
+python -m webbrowser -t http://localhost:$PORT
+python -m SimpleHTTPServer $PORT
