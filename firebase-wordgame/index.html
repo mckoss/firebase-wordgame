@@ -1,9 +1,8 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
-<link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="../bower_components/core-icons/core-icons.html">
-<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../bower_components/core-list/core-list.html">
+
+<!--- TODO(koss): Replace with more specific dependencies. --->
+<link rel="import" href="../bower_components/core-elements/core-elements.html">
+<link rel="import" href="../bower_components/paper-elements/paper-elements.html">
 
 <polymer-element name="firebase-wordgame">
   <script src="firebase-wordgame.js"></script>
@@ -26,8 +25,8 @@
           <paper-icon-button icon="menu"></paper-icon-button>
           <paper-dropdown class="dropdown">
             <core-menu class="menu">
-              <core-item>New Game</core-item>
-              <core-item>Help</core-item>
+              <paper-item id="newGame">New Game</paper-item>
+              <paper-item>Help</paper-item>
             </core-menu>
           </paper-dropdown>
         </paper-menu-button>
@@ -37,17 +36,13 @@
 
       <div class="content" fit>
 
-        <core-menu selected="0">
-          <core-item icon="settings" label="Settings"></core-item>
-          <core-item icon="dialog" label="Dialog"></core-item>
-          <core-item icon="search" label="Search"></core-item>
-        </core-menu>
-
-        <core-list data="{{games}}" fit>
+<!---
+        <core-list data="{{games}}">
           <template>
             <div><label>Created: </label>{{model.created}}</div>
           </template>
         </core-list>
+-->
       </div>
     </core-header-panel>
   </template>

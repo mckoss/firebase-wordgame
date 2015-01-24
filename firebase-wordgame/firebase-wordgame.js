@@ -14,5 +14,9 @@ Polymer('firebase-wordgame', {
       });
       this.games = list;
     }.bind(this));
+  },
+
+  newGameClicked: function() {
+    console.log("NYI");
   }
 });
