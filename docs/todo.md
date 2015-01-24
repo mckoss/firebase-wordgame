@@ -7,7 +7,7 @@ X Add to Homescreen page (manifest)
 - goog.module?
 - browserify?
 X Host on firebase - koss-wordgame.firebaseapp.com
-\ Custom domain
+X Custom domain
 - Create new Game
 - Generates “Join Code” - anyone can join.
 - Turns are based on join order in game.
