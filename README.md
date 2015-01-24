@@ -8,13 +8,12 @@ This app uses:
 - [Polymer](http://polymer-project.org) - Web components
 - [Bower](http://bower.io) - Client-side package manager
 - [Node/NPM](http://nodejs.org) - Dev tools package manager
-- [Qunit](qunitjs.com) - Unit testing framework
+- [Qunit](http://qunitjs.com) - Unit testing framework
 - [Namespace](https://github.com/mckoss/namespace) - Javascript modules (CommonJS)
 
 ## Build instructions
 
-Run these command to start developing:setup $PATH to the local project bin directory (and create some
-useful aliases), then download the dependencies
+Run these command to start developing:
 
     $ source tools/use           # Setup $PATH to include local project tools directory
     $ configure-project          # Download dependencies
