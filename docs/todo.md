@@ -39,4 +39,6 @@ X Custom domain
 Bugs
 -----
 - Mixed content - Roboto not using https
+  <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700|Source+Code+Pro"
+  Should be "//fonts..."
 - web-animations-next-lite.min.js.map - 404
