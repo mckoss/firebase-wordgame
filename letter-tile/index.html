@@ -7,7 +7,7 @@
   <script src="letter-tile.js"></script>
   <template>
     <style>
-      div {
+      #tile {
       background-color: rgb(250, 211, 68);
       position: absolute;
       width: 48px;
@@ -19,10 +19,19 @@
       -webkit-user-select: none;
       }
 
-      div:hover {
+      #tile:hover {
       cursor: move;
       }
+
+      #tile:not(.tracking) {
+      transition-property: left top;
+      transition-duration: 0.1s;
+      transition-timing-function: ease-in-out;
+      }
     </style>
-    <div id="tile" touch-action="none"><content></content></div>
+    <div id="tile"
+         touch-action="none"
+         class="{{ {tracking: tracking} | tokenList }}"
+         ><content></content></div>
   </template>
 </polymer-element>
