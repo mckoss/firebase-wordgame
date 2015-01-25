@@ -5,5 +5,6 @@ source $TOOLS_DIR/usefuncs
 PATH="$(npm bin):$PATH"
 
 add_alias cd-docs "cd \$PROJ_DIR/docs"
+add_alias cd-build "cd \$PROJ_DIR/build"
 
 show-commands

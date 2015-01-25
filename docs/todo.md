@@ -35,3 +35,8 @@ X Custom domain
       points
     Players by player-number (must be string key? 001, 002, …)
       username
+
+Bugs
+-----
+- Mixed content - Roboto not using https
+- web-animations-next-lite.min.js.map - 404
