@@ -61,7 +61,7 @@
         </core-toolbar>
 
         <div class="content" fit on-click="{{moveTile}}">
-          <letter-tile id="tile" x=100 y=100>D</letter-tile>
+          <letter-tile id="tile" x=100 y=100 on-moved="{{savePosition}}">D</letter-tile>
         </div>
       </core-header-panel>
 
