@@ -1,7 +1,7 @@
 {
   "name": "firebase-wordgame",
   "version": "0.0.0",
-  "description": "Send test messages to Hotpocket peer network.",
+  "description": "Sample crossword app - dev tools.",
   "main": "background.js",
   "directories": {
     "doc": "docs"
