@@ -42,21 +42,28 @@
       background-color: #888;
       }
 
-      .content {
+      section {
+      margin: 5px;
       }
 
+      .content {
+      }
     </style>
 
     <core-drawer-panel id="drawerPanel">
 
       <core-header-panel vertical layout drawer on-click="{{onNavigate}}">
         <core-toolbar></core-toolbar>
-        <core-menu>
-          <paper-item noink>
+        <core-menu valueattr="hash" selected="{{route}}">
+          <paper-item hash="" noink>
             <core-icon icon="home"></core-icon>
             <a href="#">Games</a>
           </paper-item>
-          <paper-item noink>
+          <paper-item hash="game" noink>
+            <core-icon icon="apps"></core-icon>
+            <a href="#game">Current Game</a>
+          </paper-item>
+          <paper-item hash="help" noink>
             <core-icon icon="help"></core-icon>
             <a href="#help">Help</a>
           </paper-item>
@@ -64,16 +71,18 @@
         <paper-item>
           <paper-button>New Game</paper-button>
         </paper-item>
-        <hr>
-        <paper-item>
-          <paper-button>Play</paper-button>
-        </paper-item>
-        <paper-item>
-          <paper-button>Skip Turn</paper-button>
-        </paper-item>
-        <paper-item>
-          <paper-button>Resign Game</paper-button>
-        </paper-item>
+        <div hidden?="{{route != 'game'}}">
+          <hr>
+          <paper-item>
+            <paper-button>Play</paper-button>
+          </paper-item>
+          <paper-item>
+            <paper-button>Skip Turn</paper-button>
+          </paper-item>
+          <paper-item>
+            <paper-button>Resign Game</paper-button>
+          </paper-item>
+        </div>
       </core-header-panel>
 
       <core-header-panel main>
@@ -85,14 +94,14 @@
           <span flex>Firewords</span>
         </core-toolbar>
 
-        <core-animated-pages selected="2" transitions="slide-from-right" fit>
-          <section>
+        <core-animated-pages valueattr="hash" selected="{{route}}" transitions="slide-from-right" fit>
+          <section hash="">
             List of games.
           </section>
-          <section>
+          <section hash="help">
             Help/about.
           </section>
-          <section>
+          <section hash="game">
             <div class="content" on-click="{{moveTile}}" fit>
               <letter-tile id="tile" x=100 y=100 on-moved="{{savePosition}}">D</letter-tile>
             </div>
