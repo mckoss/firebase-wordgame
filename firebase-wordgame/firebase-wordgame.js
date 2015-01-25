@@ -17,7 +17,7 @@ namespace.module('firebase-wordgame', function(exports, require) {
         var pos = snapshot.val();
         if (pos.counter && pos.counter > this.highWater) {
           this.highWater = pos.counter;
-          this.$.tile.moveTo(pos.x, pos.y);
+          this.$.tile.moveTo(pos.x, pos.y, true);
         }
       }.bind(this));
 
