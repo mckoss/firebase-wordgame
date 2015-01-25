@@ -9,30 +9,30 @@
   <template>
     <style>
       :host {
-        font-family: RobotoDraft;
-        background-color: white;
+      font-family: RobotoDraft;
+      background-color: white;
       }
 
       core-toolbar {
-        background-color: rgb(250, 211, 68);
+      background-color: rgb(250, 211, 68);
       }
 
       /* Bug?  Why doesn't drawer background respect global background color. */
       [drawer] {
-        background-color: white;
+      background-color: white;
       }
 
       core-drawer-panel:not([narrow]) #menuIcon {
-        display: none;
+      display: none;
       }
 
       paper-button {
-        background-color: rgb(250, 211, 68);
+      background-color: rgb(250, 211, 68);
       }
 
       .content {
-        margin: 5px;
-        background-color: gray;
+      margin: 5px;
+      background-color: gray;
       }
     </style>
 
@@ -61,7 +61,7 @@
         </core-toolbar>
 
         <div class="content" fit on-click="{{moveTile}}">
-          <letter-tile id="tile">D</letter-tile>
+          <letter-tile id="tile" x=100 y=100>D</letter-tile>
         </div>
       </core-header-panel>
 

@@ -42,3 +42,8 @@ Bugs
   <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700|Source+Code+Pro"
   Should be "//fonts..."
 - web-animations-next-lite.min.js.map - 404
+- Could not add user-select:none to App title! - did not apply to shadow-dom element.
+      .noselect {
+      -webkit-user-select: none;
+      user-select: none;
+      }

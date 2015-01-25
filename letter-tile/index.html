@@ -3,26 +3,28 @@
 <link rel="import" href="../bower_components/core-elements/core-elements.html">
 <link rel="import" href="../bower_components/paper-elements/paper-elements.html">
 
-<polymer-element name="letter-tile" attributes="letter">
+<polymer-element name="letter-tile" attributes="x y">
   <script src="letter-tile.js"></script>
   <template>
     <style>
       div {
       background-color: rgb(250, 211, 68);
       position: absolute;
-      top: 20px;
-      left: 120px;
       width: 48px;
       height: 48px;
       line-height: 50px;
       text-align: center;
       font-family: RobotoDraft;
       font-size: 48px;
-      transition-property: left top;
-      transition-duration: 0.4s;
-      transition-timing-function: ease-in-out;
+      -webkit-user-select: none;
+      }
+
+      div:hover {
+      cursor: move;
       }
     </style>
-    <div id="tile"><content></content></div>
+    <div id="tile" touch-action="none"
+         on-track="{{onDrag}}"
+         ><content></content></div>
   </template>
 </polymer-element>
