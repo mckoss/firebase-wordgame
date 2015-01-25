@@ -22,6 +22,8 @@ Polymer('letter-tile', {
 
   updatePosition: function() {
     var tile = this.$.tile;
+    this.x = Math.round(this.x);
+    this.y = Math.round(this.y);
     tile.style.left = this.x + 'px';
     tile.style.top = this.y + 'px';
     if (this.fired && this.x == this.fired.x && this.y == this.fired.y) {
