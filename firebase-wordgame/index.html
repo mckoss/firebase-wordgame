@@ -1,8 +1,6 @@
-<link rel="import" href="../bower_components/polymer/polymer.html">
-
-<!--- TODO(koss): Replace with more specific dependencies. --->
-<link rel="import" href="../bower_components/core-elements/core-elements.html">
-<link rel="import" href="../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/core-elements/core-elements.html">
+<link rel="import" href="/bower_components/paper-elements/paper-elements.html">
 
 <polymer-element name="firebase-wordgame">
   <script src="firebase-wordgame.js"></script>
@@ -10,40 +8,65 @@
     <style>
       :host {
         font-family: Roboto;
+        background-color: white;
       }
 
       core-toolbar {
+        background-color: rgb(250, 211, 68);
+      }
+
+      /* Bug?  Why doesn't drawer background respect global background color. */
+      [drawer] {
+        background-color: white;
+      }
+
+      core-drawer-panel:not([narrow]) #menuIcon {
+        display: none;
+      }
+
+      paper-button {
+        background-color: rgb(250, 211, 68);
       }
 
       .content {
         margin: 5px;
       }
     </style>
-    <core-header-panel fit>
-      <core-toolbar>
-        <paper-menu-button>
-          <paper-icon-button icon="menu"></paper-icon-button>
-          <paper-dropdown class="dropdown">
-            <core-menu class="menu">
-              <paper-item id="newGame">New Game</paper-item>
-              <paper-item>Help</paper-item>
-            </core-menu>
-          </paper-dropdown>
-        </paper-menu-button>
 
-        <span flex>Firebase Wordgame</span>
-      </core-toolbar>
+    <core-drawer-panel id="drawerPanel">
 
-      <div class="content" fit>
+      <core-header-panel drawer>
+        <core-toolbar id="navheader">
+          <paper-button on-click="{{togglePanel}}" noink>Firewords</paper-button>
+        </core-toolbar>
+        <core-menu>
+          <paper-button raised>New Game</paper-button>
+          <hr>
+          <paper-item>Play</paper-item>
+          <paper-item>Skip Turn</paper-item>
+          <paper-item>Resign Game</paper-item>
+        </core-menu>
+      </core-header-panel>
 
-<!---
-        <core-list data="{{games}}">
-          <template>
-            <div><label>Created: </label>{{model.created}}</div>
-          </template>
-        </core-list>
--->
-      </div>
-    </core-header-panel>
+      <core-header-panel main>
+        <core-toolbar>
+          <paper-icon-button icon="menu"
+                             on-click="{{togglePanel}}"
+                             id="menuIcon">
+          </paper-icon-button>
+          <span flex>Firewords</span>
+        </core-toolbar>
+
+        <div class="content" fit>
+          <core-list data="{{games}}" fit>
+            <template>
+              <div><label>Created: </label>{{model.created}}</div>
+            </template>
+          </core-list>
+        </div>
+      </core-header-panel>
+
+    </core-drawer-panel>
+
   </template>
 </polymer-element>

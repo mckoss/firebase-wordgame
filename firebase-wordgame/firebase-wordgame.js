@@ -2,7 +2,7 @@ Polymer('firebase-wordgame', {
   ready: function() {
     console.log("firebase-wordgame loaded");
     var ref = new Firebase("https://koss-wordgame.firebaseio.com/games");
-    ref.set({});
+    // ref.set({});
     ref.push({
       created: new Date().toISOString()
     });
@@ -16,7 +16,7 @@ Polymer('firebase-wordgame', {
     }.bind(this));
   },
 
-  newGameClicked: function() {
-    console.log("NYI");
+  togglePanel: function() {
+    this.$.drawerPanel.togglePanel();
   }
 });

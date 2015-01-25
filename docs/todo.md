@@ -4,6 +4,11 @@ X Repo w Polymer/Bower/Closure Compiler/Closure Library
 X qunit tests for non-UI components
 X jshint
 X Add to Homescreen page (manifest)
+- Revert menu to slide-out panel
+- <drag-tile>
+- Realtime sharing of tile positions via Firebase
+- Polymer routing? #anchor URLS
+- Run tests from command line (non-browser)
 - goog.module?
 - browserify?
 X Host on firebase - koss-wordgame.firebaseapp.com
