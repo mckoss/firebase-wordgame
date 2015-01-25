@@ -2,6 +2,7 @@
 <link rel="import" href="../bower_components/font-roboto/roboto.html">
 <link rel="import" href="../bower_components/core-elements/core-elements.html">
 <link rel="import" href="../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="../letter-tile/index.html">
 
 <polymer-element name="firebase-wordgame">
   <script src="firebase-wordgame.js"></script>
@@ -31,6 +32,7 @@
 
       .content {
         margin: 5px;
+        background-color: gray;
       }
     </style>
 
@@ -58,12 +60,8 @@
           <span flex>Firewords</span>
         </core-toolbar>
 
-        <div class="content" fit>
-          <core-list data="{{games}}" fit>
-            <template>
-              <div><label>Created: </label>{{model.created}}</div>
-            </template>
-          </core-list>
+        <div class="content" fit on-click="{{moveTile}}">
+          <letter-tile id="tile">D</letter-tile>
         </div>
       </core-header-panel>
 

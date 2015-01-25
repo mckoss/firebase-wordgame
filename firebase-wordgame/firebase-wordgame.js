@@ -18,5 +18,9 @@ Polymer('firebase-wordgame', {
 
   togglePanel: function() {
     this.$.drawerPanel.togglePanel();
+  },
+
+  moveTile: function() {
+    this.$.tile.moveTo(400, 400);
   }
 });
