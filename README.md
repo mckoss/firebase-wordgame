@@ -27,8 +27,11 @@ Unit test are run in web browser:
 
 ## Deployment
 
+Run a "compiled" (vulcanized) version locally:
+
     $ build-app                  # Make deployable version
     $ run-server --build         # Run a web server running the deployed version
-    $ cd-build
-    $ firebase init
-    $ firebase deploy
+
+Deploy build to Firebase hosting:
+
+    $ deploy-app
