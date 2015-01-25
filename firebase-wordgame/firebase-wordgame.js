@@ -13,7 +13,6 @@ namespace.module('firebase-wordgame', function(exports, require) {
       this.realtimeRef = new Firebase("https://koss-wordgame.firebaseio.com/realtime");
       this.realtimeRef.on('value', function(snapshot) {
         var pos = snapshot.val();
-        console.log("updated", pos);
         this.$.tile.moveTo(pos.x, pos.y);
       }.bind(this));
 
