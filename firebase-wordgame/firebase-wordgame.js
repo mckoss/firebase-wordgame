@@ -43,6 +43,10 @@ namespace.module('firebase-wordgame', function(exports, require) {
     savePos: function(pos) {
       console.log("saving: ", pos);
       this.realtimeRef.set(pos);
+    },
+
+    onNavigate: function() {
+      this.$.drawerPanel.closeDrawer();
     }
 
   });
