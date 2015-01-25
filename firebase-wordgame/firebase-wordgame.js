@@ -3,8 +3,6 @@ namespace.module('firebase-wordgame', function(exports, require) {
   var saveInterval = 100;
 
   Polymer('firebase-wordgame', {
-    highWater: 0,
-
     created: function() {
       this._savePosition = wrap.rateLimit(saveInterval,
                                           wrap.dedup(this.savePos.bind(this)));
@@ -15,10 +13,7 @@ namespace.module('firebase-wordgame', function(exports, require) {
       this.realtimeRef = new Firebase("https://koss-wordgame.firebaseio.com/realtime");
       this.realtimeRef.on('value', function(snapshot) {
         var pos = snapshot.val();
-        if (pos.counter && pos.counter > this.highWater) {
-          this.highWater = pos.counter;
-          this.$.tile.moveTo(pos.x, pos.y, true);
-        }
+        this.$.tile.moveTo(pos.x, pos.y, true);
       }.bind(this));
 
       var ref = new Firebase("https://koss-wordgame.firebaseio.com/games");
@@ -46,8 +41,6 @@ namespace.module('firebase-wordgame', function(exports, require) {
     },
 
     savePos: function(pos) {
-      this.highWater += 1;
-      pos.counter = this.highWater;
       console.log("saving: ", pos);
       this.realtimeRef.set(pos);
     }
