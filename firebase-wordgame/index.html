@@ -52,7 +52,7 @@
 
     <core-drawer-panel id="drawerPanel">
 
-      <core-header-panel vertical layout drawer on-click="{{onNavigate}}">
+      <core-header-panel vertical layout drawer on-tap="{{onNavigate}}">
         <core-toolbar></core-toolbar>
         <core-menu valueattr="hash" selected="{{route}}">
           <paper-item hash="" noink>
@@ -88,7 +88,7 @@
       <core-header-panel main>
         <core-toolbar>
           <paper-icon-button icon="menu"
-                             on-click="{{togglePanel}}"
+                             on-tap="{{togglePanel}}"
                              id="menuIcon">
           </paper-icon-button>
           <span flex>Firewords</span>
@@ -102,7 +102,7 @@
             Help/about.
           </section>
           <section hash="game">
-            <div class="content" on-click="{{moveTile}}" fit>
+            <div class="content" fit>
               <letter-tile id="tile" x=100 y=100 on-moved="{{savePosition}}">D</letter-tile>
             </div>
           </section>
