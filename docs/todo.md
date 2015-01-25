@@ -23,6 +23,7 @@ X Custom domain
   - Game board
   - Rack
   - Player roster w/ scores
+- Use layout center-center instead of tiles line height? - https://www.polymer-project.org/articles/spa.html
 - Schema
   Games (game-id is random seed)
     create-date
@@ -35,6 +36,8 @@ X Custom domain
       points
     Players by player-number (must be string key? 001, 002, …)
       username
+- WCT tests
+
 
 Bugs
 -----

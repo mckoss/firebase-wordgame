@@ -10,6 +10,7 @@ This app uses:
 - [Node/NPM](http://nodejs.org) - Dev tools package manager
 - [Qunit](http://qunitjs.com) - Unit testing framework
 - [Namespace](https://github.com/mckoss/namespace) - Javascript modules (CommonJS)
+- [flatiron director](https://github.com/flatiron/director) - Routing library
 
 ## Build instructions
 

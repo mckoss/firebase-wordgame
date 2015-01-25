@@ -1,10 +1,10 @@
 namespace.module('firebase-wordgame', function(exports, require) {
   var wrap = require('func-wrappers');
-  var saveInterval = 100;
+  var SAVE_INTERVAL = 100;
 
   Polymer('firebase-wordgame', {
     created: function() {
-      this._savePosition = wrap.rateLimit(saveInterval,
+      this._savePosition = wrap.rateLimit(SAVE_INTERVAL,
                                           wrap.dedup(this.savePos.bind(this)));
      },
 
