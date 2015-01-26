@@ -30,6 +30,8 @@ namespace.module('firebase-wordgame', function(exports, require) {
         });
         this.games = list;
       }.bind(this));
+
+      this.route = this.route || "home";
     },
 
     togglePanel: function() {

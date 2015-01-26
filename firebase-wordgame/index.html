@@ -2,6 +2,7 @@
 <link rel="import" href="../bower_components/font-roboto/roboto.html">
 <link rel="import" href="../bower_components/core-elements/core-elements.html">
 <link rel="import" href="../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="../bower_components/flatiron-director/flatiron-director.html">
 <link rel="import" href="../letter-tile/index.html">
 
 <polymer-element name="firebase-wordgame">
@@ -37,7 +38,7 @@
       background-color: rgb(250, 211, 68);
       }
 
-      core-animated-pages {
+      core-pages {
       padding: 5px;
       background-color: #888;
       }
@@ -50,14 +51,16 @@
       }
     </style>
 
+    <flatiron-director route="{{route}}" autoHash></flatiron-director>
+
     <core-drawer-panel id="drawerPanel">
 
       <core-header-panel vertical layout drawer on-tap="{{onNavigate}}">
         <core-toolbar></core-toolbar>
         <core-menu valueattr="hash" selected="{{route}}">
-          <paper-item hash="" noink>
+          <paper-item hash="home" noink>
             <core-icon icon="home"></core-icon>
-            <a href="#">Games</a>
+            <a href="#home">Games</a>
           </paper-item>
           <paper-item hash="game" noink>
             <core-icon icon="apps"></core-icon>
@@ -94,8 +97,8 @@
           <span flex>Firewords</span>
         </core-toolbar>
 
-        <core-animated-pages valueattr="hash" selected="{{route}}" transitions="slide-from-right" fit>
-          <section hash="">
+        <core-pages valueattr="hash" selected="{{route}}" fit>
+          <section hash="home">
             List of games.
           </section>
           <section hash="help">
@@ -103,10 +106,12 @@
           </section>
           <section hash="game">
             <div class="content" fit>
-              <letter-tile id="tile" x=100 y=100 on-moved="{{savePosition}}">D</letter-tile>
+              <letter-tile id="tile" x=100 y=100
+                           on-moved="{{savePosition}}"
+                           >K</letter-tile>
             </div>
           </section>
-        </core-animated-pages>
+        </core-pages>
 
       </core-header-panel>
 
