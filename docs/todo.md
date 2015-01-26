@@ -4,16 +4,15 @@ X Repo w Polymer/Bower/Closure Compiler/Closure Library
 X qunit tests for non-UI components
 X jshint
 X Add to Homescreen page (manifest)
-- Revert menu to slide-out panel
-- <drag-tile>
-- Realtime sharing of tile positions via Firebase
-- Polymer routing? #anchor URLS
+X Revert menu to slide-out panel
+X <drag-tile>
+X Realtime sharing of tile positions via Firebase
+X Polymer routing? #anchor URLS
+- Auth (G+ or Facebook)
 - Run tests from command line (non-browser)
-- goog.module?
-- browserify?
 X Host on firebase - koss-wordgame.firebaseapp.com
 X Custom domain
-- Create new Game
+X Create new Game
 - Generates “Join Code” - anyone can join.
 - Turns are based on join order in game.
 - Deterministic random numbers pick from english frequency letters to refill rack.
@@ -23,11 +22,10 @@ X Custom domain
   - Game board
   - Rack
   - Player roster w/ scores
-- Use layout center-center instead of tiles line height? - https://www.polymer-project.org/articles/spa.html
 - Schema
   Games (game-id is random seed)
     create-date
-    Tiles - string (opt-deterministic)
+    tiles - string (opt-deterministic)
     currentPlayerId
     Moves [counter]
       playerId
@@ -38,9 +36,16 @@ X Custom domain
       username
 - WCT tests
 
+Cleanup
+--------
+- Use layout center-center instead of tiles line height? - https://www.polymer-project.org/articles/spa.html
+- goog.module?
+- browserify?
 
 Bugs
 -----
+- Navigation to / should redirect to home!
+- Moving a tile in an uncreated game - just creates a game (invalid) object.
 - core-animated-pages not animating???
 - Mixed content - Roboto not using https
   <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700|Source+Code+Pro"

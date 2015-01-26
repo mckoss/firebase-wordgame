@@ -2,8 +2,10 @@
 <link rel="import" href="../bower_components/font-roboto/roboto.html">
 <link rel="import" href="../bower_components/core-elements/core-elements.html">
 <link rel="import" href="../bower_components/paper-elements/paper-elements.html">
-<link rel="import" href="../bower_components/flatiron-director/flatiron-director.html">
 <link rel="import" href="../letter-tile/index.html">
+<link rel="import" href="../tile-grid/tile-grid.html">
+
+<script src="../bower_components/director/build/director.js"></script>
 
 <polymer-element name="firebase-wordgame">
   <script src="firebase-wordgame.js"></script>
@@ -47,24 +49,21 @@
       margin: 5px;
       }
 
-      .content {
+      #rack {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
       }
     </style>
-
-    <flatiron-director route="{{route}}" autoHash></flatiron-director>
 
     <core-drawer-panel id="drawerPanel">
 
       <core-header-panel vertical layout drawer on-tap="{{onNavigate}}">
         <core-toolbar></core-toolbar>
-        <core-menu valueattr="hash" selected="{{route}}">
+        <core-menu valueattr="hash" selected="{{page}}">
           <paper-item hash="home" noink>
             <core-icon icon="home"></core-icon>
             <a href="#home">Games</a>
-          </paper-item>
-          <paper-item hash="game" noink>
-            <core-icon icon="apps"></core-icon>
-            <a href="#game">Current Game</a>
           </paper-item>
           <paper-item hash="help" noink>
             <core-icon icon="help"></core-icon>
@@ -72,12 +71,12 @@
           </paper-item>
         </core-menu>
         <paper-item>
-          <paper-button>New Game</paper-button>
+          <paper-button on-tap="{{createGame}}">New Game</paper-button>
         </paper-item>
-        <div hidden?="{{route != 'game'}}">
+        <div hidden?="{{page != 'game'}}">
           <hr>
           <paper-item>
-            <paper-button>Play</paper-button>
+            <paper-button on-tap="{{fillRack}}">Play</paper-button>
           </paper-item>
           <paper-item>
             <paper-button>Skip Turn</paper-button>
@@ -97,18 +96,22 @@
           <span flex>Firewords</span>
         </core-toolbar>
 
-        <core-pages valueattr="hash" selected="{{route}}" fit>
-          <section hash="home">
-            List of games.
+        <core-pages valueattr="hash" selected="{{page}}" fit>
+          <section hash="home" fit>
+            <template repeat="{{game in games}}">
+              <div><a href="#game/{{game.key}}">{{game.created}}</a></div>
+            </template>
           </section>
           <section hash="help">
             Help/about.
           </section>
           <section hash="game">
-            <div class="content" fit>
-              <letter-tile id="tile" x=100 y=100
+            <div fit>
+              <tile-grid id="rack" rows=1 cols=7></tile-grid>
+              <letter-tile id="tile" size=100
                            on-moved="{{savePosition}}"
-                           >K</letter-tile>
+                           letter="M"
+                           ></letter-tile>
             </div>
           </section>
         </core-pages>

@@ -21,6 +21,6 @@
     "qunit": "~1.17.1",
     "closurelibrary": "*",
     "firebase": "~2.1.1",
-    "flatiron-director": "https://github.com/PolymerLabs/flatiron-director.git#~0.5.0"
+    "director": "~1.2.5"
   }
 }

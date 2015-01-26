@@ -4,15 +4,23 @@ namespace.module('letter-tile', function(require, exports) {
   Polymer('letter-tile', {
     x: 0,
     y: 0,
+    size: 48,
     tracking: false,
 
     ready: function() {
+      this.animate = this._animate.bind(this);
+
       trackEvents.forEach(function(evtName) {
         this.$.tile.addEventListener(evtName.toLowerCase(),
                                      this['on' + evtName].bind(this));
       }.bind(this));
-      this.animate = this._animate.bind(this);
+      this.$.tile.textContent = this.letter;
       this.render();
+    },
+
+    letterChanged: function() {
+      console.log("letter change");
+      this.$.tile.textContent = this.letter;
     },
 
     onTrackStart: function(evt) {
@@ -38,15 +46,16 @@ namespace.module('letter-tile', function(require, exports) {
       requestAnimationFrame(this.animate);
     },
 
-    moveTo: function(x, y, render) {
+    moveTo: function(x, y) {
       this.x = x;
       this.y = y;
-      if (render) {
+      if (!this.tracking) {
         this.render();
       }
     },
 
     render: function() {
+      console.log("render " + this.letter);
       this.x = Math.round(this.x);
       this.y = Math.round(this.y);
       this.$.tile.style.left = this.x + 'px';

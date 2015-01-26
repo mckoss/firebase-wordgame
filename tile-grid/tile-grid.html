@@ -1,0 +1,20 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-elements/core-elements.html">
+<link rel="import" href="../bower_components/paper-elements/paper-elements.html">
+
+<polymer-element name="tile-grid" attributes="rows cols">
+  <script src="tile-grid.js"></script>
+  <template>
+    <style>
+      #grid {
+      position: relative;
+      background-color: #444;
+      -webkit-user-select: none;
+      width: 100%;
+      height: 100%;
+      }
+    </style>
+    <div id="grid" fit>
+    </div>
+  </template>
+</polymer-element>
