@@ -6,5 +6,6 @@ PATH="$(npm bin):$PATH"
 
 add_alias cd-docs "cd \$PROJ_DIR/docs"
 add_alias cd-build "cd \$PROJ_DIR/build"
+add_alias cd-test "cd \$PROJ_DIR/test"
 
 show-commands
