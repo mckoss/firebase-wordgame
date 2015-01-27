@@ -1,5 +1,6 @@
 #!/bin/bash
 # deploy-app --- Build app and deploy to firebase.
+set -e
 source $TOOLS_DIR/usefuncs
 
 if yes_or_no "Re-build app"; then

@@ -12,7 +12,6 @@
 # Executables in this directory should have a header commment formated like:
 #
 # <command-name> --- <Description of the command>
-set -e
 
 ENV_ALIASES=""
 

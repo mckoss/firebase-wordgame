@@ -1,5 +1,6 @@
 #!/bin/bash
 # build-app --- Build app in directory using vulcanize.
+set -e
 source $TOOLS_DIR/usefuncs
 
 cd $PROJ_DIR
