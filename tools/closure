@@ -1,0 +1,5 @@
+#!/bin/bash
+# closure --- Run the Google Closure Compiler
+CC=$PROJ_DIR/node_modules/closurecompiler/compiler/compiler.jar
+
+java -jar $CC $*
