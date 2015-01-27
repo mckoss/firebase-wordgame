@@ -35,6 +35,8 @@ X Create new Game
     Players by player-number (must be string key? 001, 002, …)
       username
 - WCT tests
+- Handle screen resize
+
 
 Cleanup
 --------

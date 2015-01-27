@@ -19,7 +19,6 @@ namespace.module('letter-tile', function(require, exports) {
     },
 
     letterChanged: function() {
-      console.log("letter change");
       this.$.tile.textContent = this.letter;
     },
 
@@ -55,7 +54,6 @@ namespace.module('letter-tile', function(require, exports) {
     },
 
     render: function() {
-      console.log("render " + this.letter);
       this.x = Math.round(this.x);
       this.y = Math.round(this.y);
       this.$.tile.style.left = this.x + 'px';

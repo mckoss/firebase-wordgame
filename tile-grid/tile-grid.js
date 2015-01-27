@@ -17,8 +17,6 @@ namespace.module('tile-grid', function(require, exports) {
       var vertGaps = this.margin * (this.rows + 1);
       this.tileSize = (this.totalWidth -  horizGaps) / this.cols;
       this.$.grid.style.height = (vertGaps + this.tileSize * this.rows) + 'px';
-
-      console.log(this.rows, this.cols);
     },
 
     addTile: function(ch, row, col) {
