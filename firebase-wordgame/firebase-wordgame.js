@@ -1,6 +1,7 @@
 namespace.module('firebase-wordgame', function(exports, require) {
   var wrap = require('func-wrappers');
   var SAVE_INTERVAL = 100;
+  var RACK_SIZE = 1;
 
   var rootRef = new Firebase("https://koss-wordgame.firebaseio.com");
   var gamesRef = rootRef.child('games');
@@ -45,7 +46,7 @@ namespace.module('firebase-wordgame', function(exports, require) {
     },
 
     fillRack: function() {
-      for (var i = 0; i < 7; i++) {
+      for (var i = 0; i < RACK_SIZE; i++) {
         this.$.rack.addTile('A', 0, i);
       }
     },

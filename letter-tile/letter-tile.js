@@ -58,6 +58,7 @@ namespace.module('letter-tile', function(require, exports) {
       this.y = Math.round(this.y);
       this.$.tile.style.left = this.x + 'px';
       this.$.tile.style.top = this.y + 'px';
+      console.log("setting", this.$.tile, "to", this.x, this.y);
     },
 
     fireMovedEvents: function() {
