@@ -1,14 +1,19 @@
 #!/bin/bash
 # deploy-app --- Build app and deploy to firebase.
-set -e
+source $TOOLS_DIR/usefuncs
 
-build-app
+if yes_or_no "Re-build app"; then
+  build-app
+fi
 
 cd $PROJ_DIR/build
 
 if [ ! -f firebase.json ]; then
     firebase init
 fi
+
+echo "Deploying..."
+tree
 
 firebase deploy
 firebase open

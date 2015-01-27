@@ -2,6 +2,7 @@
 # and commands.
 #
 # Sourced from a 'use' script containing:
+#
 # export PROJECT=<project-name>
 # export TOOLS_DIR="$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)"
 # source $TOOLS_DIR/usefuncs
@@ -11,8 +12,15 @@
 # Executables in this directory should have a header commment formated like:
 #
 # <command-name> --- <Description of the command>
+set -e
 
 ENV_ALIASES=""
+
+yes_or_no() {
+    PROMPT="$1"; shift
+    read -p "$PROMPT (y/N): "
+    [[ $REPLY == "y" ]]
+}
 
 reuse () {
     source "$TOOLS_DIR/use"
@@ -83,6 +91,7 @@ show-commands () {
 
 if [ -z "$_OLD_PATH" ]; then
     _OLD_PATH="$PATH"
+    PATH="$TOOLS_DIR:$_OLD_PATH"
 fi
 
 if [ -z "$_OLD_PS1" ]; then
@@ -94,5 +103,3 @@ export PROJ_DIR="$(dirname $TOOLS_DIR)"
 
 add_alias cd-tools "cd \$TOOLS_DIR"
 add_alias cd-home "cd \$PROJ_DIR"
-
-PATH="$TOOLS_DIR:$_OLD_PATH"

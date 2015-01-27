@@ -1,11 +1,14 @@
 #!/bin/bash
 # build-app --- Build app in directory using vulcanize.
-set -e
+source $TOOLS_DIR/usefuncs
 
 cd $PROJ_DIR
+
+if yes_or_no "Clean directory"; then
+  rm -rf build
+fi
+
 mkdir -p build
 
 vulcanize --inline -o build/index.html index.html
 cp manifest.json build
-cp -R images build/images
-cp -R styles build/styles
