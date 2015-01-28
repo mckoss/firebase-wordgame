@@ -1,5 +1,11 @@
 #!/bin/bash
 # closure --- Run the Google Closure Compiler
-CC=$PROJ_DIR/node_modules/closurecompiler/compiler/compiler.jar
 
-java -jar $CC $*
+CC=$PROJ_DIR/node_modules/closurecompiler/compiler/compiler.jar
+FLAGS="--compilation_level ADVANCED_OPTIMIZATIONS \
+       --warning_level VERBOSE \
+       --externs $PROJ_DIR/scripts/namespace_externs.js
+       --create_source_map source_map.map
+      "
+
+java -jar $CC $FLAGS $*

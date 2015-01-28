@@ -24,7 +24,7 @@ namespace.module('func-wrappers', function(exports, require) {
    * minInterval after repeated calls have ceased.
    *
    * @param {number} minInterval
-   * @param {function([?]): RETURNS} fn
+   * @param {function(...?): RETURNS} fn
    * @return {RETURNS}
    * @template RETURNS
    */
